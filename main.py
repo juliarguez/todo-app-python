@@ -26,6 +26,9 @@ while True:
     if option == "1":
         show_tasks()
 
+    elif option == "2":
+        title = input("Nueva tarea: ")
+        tasks.append({"title": title, "done": False})
     
     if option == "5":
         break
