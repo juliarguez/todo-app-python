@@ -30,5 +30,11 @@ while True:
         title = input("Nueva tarea: ")
         tasks.append({"title": title, "done": False})
     
+    elif option == "3":
+        show_tasks()
+        index = int(input("Número a eliminar: ")) - 1
+        if 0 <= index < len(tasks):
+            tasks.pop(index)
+    
     if option == "5":
         break
