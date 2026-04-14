@@ -35,6 +35,12 @@ while True:
         index = int(input("Número a eliminar: ")) - 1
         if 0 <= index < len(tasks):
             tasks.pop(index)
+
+    elif option == "4":
+        show_tasks()
+        index = int(input("Número a completar: ")) - 1
+        if 0 <= index < len(tasks):
+            tasks[index]["done"] = True
     
     if option == "5":
         break
