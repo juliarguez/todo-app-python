@@ -1,5 +1,16 @@
 tasks = []
 
+
+def show_tasks():
+    if not tasks:
+        print("\nNo hay tareas\n")
+        return
+
+    for i, t in enumerate(tasks):
+        status = "✔" if t["done"] else "✘"
+        print(f"{i+1}. [{status}] {t['title']}")
+
+
 while True:
     print("""
 === TO-DO APP ===
@@ -12,5 +23,9 @@ while True:
 
     option = input("Opción: ")
 
+    if option == "1":
+        show_tasks()
+
+    
     if option == "5":
         break
