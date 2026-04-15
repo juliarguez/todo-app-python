@@ -1,3 +1,5 @@
+from todo import add_task, delete_task, complete_task, edit_task
+
 tasks = []
 
 
@@ -29,29 +31,23 @@ while True:
 
     elif option == "2":
         title = input("Nueva tarea: ")
-        tasks.append({"title": title, "done": False})
-    
+        add_task(tasks, title)
+
     elif option == "3":
         show_tasks()
         index = int(input("Número de tarea a eliminar: ")) - 1
-        if 0 <= index < len(tasks):
-            tasks.pop(index)
+        delete_task(tasks, index)
 
     elif option == "4":
         show_tasks()
         index = int(input("Número de tarea a completar: ")) - 1
-        if 0 <= index < len(tasks):
-            tasks[index]["done"] = True
+        complete_task(tasks, index)
     
     elif option == "5":
         show_tasks()
         index = int(input("Número de tarea a editar: ")) - 1
-
-        if 0 <= index < len(tasks):
-            new_title = input("Nuevo nombre de la tarea: ")
-            tasks[index]["title"] = new_title
-        else:
-            print("Índice inválido")
+        new_title = input("Nuevo nombre de la tarea: ")
+        edit_task(tasks, index, new_title)
     
     if option == "6":
         break
