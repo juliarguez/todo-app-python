@@ -18,7 +18,8 @@ while True:
 2. Añadir tarea
 3. Eliminar tarea
 4. Completar tarea
-5. Salir
+5. Editar tarea
+6. Salir
 """)
 
     option = input("Opción: ")
@@ -32,15 +33,25 @@ while True:
     
     elif option == "3":
         show_tasks()
-        index = int(input("Número a eliminar: ")) - 1
+        index = int(input("Número de tarea a eliminar: ")) - 1
         if 0 <= index < len(tasks):
             tasks.pop(index)
 
     elif option == "4":
         show_tasks()
-        index = int(input("Número a completar: ")) - 1
+        index = int(input("Número de tarea a completar: ")) - 1
         if 0 <= index < len(tasks):
             tasks[index]["done"] = True
     
-    if option == "5":
+    elif option == "5":
+        show_tasks()
+        index = int(input("Número de tarea a editar: ")) - 1
+
+        if 0 <= index < len(tasks):
+            new_title = input("Nuevo nombre de la tarea: ")
+            tasks[index]["title"] = new_title
+        else:
+            print("Índice inválido")
+    
+    if option == "6":
         break
