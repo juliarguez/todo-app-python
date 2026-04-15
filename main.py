@@ -1,6 +1,7 @@
 from todo import add_task, delete_task, complete_task, edit_task
+from storage import load_tasks, save_tasks
 
-tasks = []
+tasks = load_tasks()
 
 
 def show_tasks():
@@ -32,22 +33,26 @@ while True:
     elif option == "2":
         title = input("Nueva tarea: ")
         add_task(tasks, title)
+        save_tasks(tasks)
 
     elif option == "3":
         show_tasks()
         index = int(input("Número de tarea a eliminar: ")) - 1
         delete_task(tasks, index)
+        save_tasks(tasks)
 
     elif option == "4":
         show_tasks()
         index = int(input("Número de tarea a completar: ")) - 1
         complete_task(tasks, index)
+        save_tasks(tasks)
     
     elif option == "5":
         show_tasks()
         index = int(input("Número de tarea a editar: ")) - 1
         new_title = input("Nuevo nombre de la tarea: ")
         edit_task(tasks, index, new_title)
+        save_tasks(tasks)
     
     if option == "6":
         break
