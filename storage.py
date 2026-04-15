@@ -1,12 +1,15 @@
 import json
 
 FILE = "tasks.json"
+ 
 
 def load_tasks():
     try:
         with open(FILE, "r") as f:
             return json.load(f)
     except FileNotFoundError:
+        return []
+    except json.JSONDecodeError:
         return []
 
 def save_tasks(tasks):
